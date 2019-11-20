@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.softtron.springbootproject.daos.UserDao">
+
+<select  id="findalluser" resultType="com.softtron.springbootproject.domains.User">
+select * from user order by userId asc
+</select>
+<delete id="deleteUser" parameterType="java.lang.Integer">
+delete from user where userid = #{userId}
+</delete>
+<insert id="insertUser"  parameterType="com.softtron.springbootproject.domains.User">
+insert into user(username,userpassword) value(#{userName},#{userPassword})
+</insert>
+<update id="updateUser" parameterType="com.softtron.springbootproject.domains.User">
+update user set username=#{userName},userpassword =#{userPassword} where userid =#{userId}
+</update>
+</mapper>
